@@ -23,7 +23,7 @@ const addCliente = (firstName, lastName, age, email, DNI, birthDate) => {
   cliente.init(firstName, lastName, age, email, DNI, birthDate);
   clientes.push(cliente);
 };
-
+// commit
 const handleInput = () => {
   console.log('1. Agregar cliente\n2. Mostrar clientes\n3. Salir');
   rl.question('Ingrese una opción: ', (input) => {
