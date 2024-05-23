@@ -2,9 +2,9 @@
 
 ## Grupo
 ### Integrantes
+* 51331 - Alaniz, Juan Francisco
 * 51564 - Cascardo, Bruno
 * 50489 - Dragotta, Tomás
-* 51331 - Alaniz, Juan Francisco
 * 51200 - Martinez, Jano
 
 ## Tema
