@@ -4,20 +4,22 @@ import { Cliente } from './clientes.js';
 const app = express();
 app.use(express.json());
 
+//Date format: YYYY-MM-DD
+
 const clientes = [
   new Cliente(
     'Bruno',
     'Cascardo',
     '12345678',
     'bruno@gmail.com',
-    new Date('2004-01-20')
+    new Date('2004-05-23')
   ),
   new Cliente(
-    'Serena',
-    'Giacomelli',
+    'Jano',
+    'Martinez',
     '2058365',
-    'sere@gmail.com',
-    new Date('2004-13-03')
+    'jano@gmail.com',
+    new Date('2000-07-04')
   ),
 ];
 
@@ -78,7 +80,7 @@ app.post('/api/clientes', sanitizeClienteInput, (req, res) => {
 
 // MODIFICAR UN CLIENTE COMPLETAMENTE
 
-app.put('/api/cliente/:dni', sanitizeClienteInput, (req, res) => {
+app.put('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
   const indexC = clientes.findIndex((c) => c.dni === req.params.dni);
   if (indexC === -1) {
     res.status(404).send({ message: 'Cliente not found' });
@@ -106,7 +108,7 @@ app.patch('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
 
 // BORRAR UN CLIENTE
 
-app.delete('/api/clientes/:id', (req, res) => {
+app.delete('/api/clientes/:dni', (req, res) => {
   const indexC = clientes.findIndex((c) => c.dni === req.params.dni);
   if (indexC === -1) {
     res.status(404).send({ message: 'Cliente not found' });
