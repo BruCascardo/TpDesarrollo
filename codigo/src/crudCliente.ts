@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { Cliente } from './clientes.js';
+import { Cliente } from './cliente.js';
 
 const app = express();
 app.use(express.json());
@@ -14,7 +14,7 @@ const clientes = [
     'bruno@gmail.com',
     new Date('2004-05-23')
   ),
-  new Cliente(
+  new Cliente( 
     'Jano',
     'Martinez',
     '2058365',

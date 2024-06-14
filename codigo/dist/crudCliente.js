@@ -1,5 +1,5 @@
 import express from 'express';
-import { Cliente } from './clientes.js';
+import { Cliente } from './cliente.js';
 const app = express();
 app.use(express.json());
 //Date format: YYYY-MM-DD
