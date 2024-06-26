@@ -1,0 +1,42 @@
+### Obtener todas los ciudades
+
+GET http://localhost:3000/api/ciudades
+
+### Obtener una ciudad por id
+
+GET http://localhost:3000/api/ciudades/123
+
+### Crear una ciudad
+
+POST http://localhost:3000/api/ciudades/
+Content-Type: application/json
+
+{
+    "id": "123",
+    "nombre": "Rosario",
+    "descripcion": "En rosario podes visitar el monumento a la bandera y el parque de la independencia entre otros lugares"
+}
+
+### modificar una ciudad (PUT - recurso completo)
+
+PUT http://localhost:3000/api/ciudades/123
+Content-Type: application/json
+
+{
+    "id": "123",
+    "nombre": "Cordoba",
+    "descripcion": "En cordoba podes visitar la iglesia de los capuchinos y el cerro de la cruz entre otros lugares"
+}
+
+### modificar una ciudad (PATCH - recurso parcial)
+
+PATCH http://localhost:3000/api/ciudades/123
+Content-Type: application/json
+
+{
+    "descripcion": "Ciudad de fernet y asado argentino"
+}
+
+### Borrar un ciudad
+
+DELETE http://localhost:3000/api/ciudades/12345678
