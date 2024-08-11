@@ -1,0 +1,121 @@
+*{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+.footer {
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.suscripcion {
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.suscripcion p {
+    margin-right: 20px ;
+}
+
+.suscripcion-input {
+    display: flex;
+    align-items: center;
+}
+
+.suscripcion-input input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.suscripcion-input button {
+    padding: 10px 20px;
+    background-color: #00aabb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.enlaces {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.columna {
+    flex: 1;
+}
+
+.columna h4 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.columna ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.columna ul li {
+    margin-bottom: 5px;
+}
+
+.columna ul li a {
+    color: #00aabb;
+    text-decoration: none;
+}
+
+.viajes-argentina {
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.viajes-argentina li{
+    list-style: none;
+}
+
+.viajes-argentina h4{
+    margin-bottom: 10px;
+}
+
+.viajes-argentina a{
+    color: #00aabb;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+
+
+.boton-arrepentimiento {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.disclaimer {
+    font-size: 12px;
+    color: #666;
+}

@@ -1,0 +1,84 @@
+.contenedor-buscador {
+    background: url('../images/image.webp') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 95%;
+    margin:20px auto auto auto;
+}
+
+.contenedor-buscador h2 {
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.formulario-buscador {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tipo-viaje {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.tipo-viaje label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.boton-agregar-alojamiento {
+    background: transparent;
+    border: 1px solid #00aaff;
+    color: #00aaff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.grupo-input label {
+    font-weight: bold;
+    color: #333;
+}
+
+.grupo-input input,
+.grupo-input select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.boton-buscar {
+    max-width: 200px;
+    background: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    flex: 1 100%;
+}
+
+.boton-buscar:hover {
+    background: #ff4500;
+}
