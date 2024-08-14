@@ -6,7 +6,7 @@
 }
 
 
-.footer {
+.footer1 {
     padding: 20px;
     background-color: #f8f8f8;
 }
@@ -37,19 +37,11 @@
     margin-right: 10px;
 }
 
-.suscripcion-input button {
-    padding: 10px 20px;
-    background-color: #00aabb;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 .enlaces {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .columna {
@@ -118,4 +110,23 @@
 .disclaimer {
     font-size: 12px;
     color: #666;
+}
+
+.button-suscribe {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid#0056b3 ;
+    border-radius: 20px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    color: #333;
+    cursor: pointer;
+}
+
+.button-suscribe:hover{
+    background-color: #0056b3;
+    color: white;
 }

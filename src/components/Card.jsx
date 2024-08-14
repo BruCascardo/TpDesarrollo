@@ -27,10 +27,16 @@ const Card = ({ destino, origen, precio, imagen }) => {
 
 const CardList = () => {
     return (
-        <div className="card-list">
-            {vuelos.map((vuelo, index) => (
-                <Card key={index} {...vuelo} />
-            ))}
+        <div className="container">
+            <div className="offer-container">
+                <div className="offer-text">Descubrí nuestras ofertas en los mejores destinos.</div>
+                <a href="#" className="view-more-button">VER MÁS</a>
+            </div>
+            <div className="card-list" >
+                {vuelos.map((vuelo, index) => (
+                    <Card key={index} {...vuelo} />
+                ))}
+            </div>
         </div>
     );
 };

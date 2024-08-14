@@ -1,8 +1,16 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 .card-list {
     display: flex;
     justify-content:space-evenly;
     flex-wrap: wrap;
     margin: 50px;
+    gap: 30px;
 }
 
 .card {
@@ -66,4 +74,38 @@
     margin: 5px 0;
     font-size: 1.5em;
     color: #333;
+}
+
+.offer-container {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: Arial, sans-serif;
+    margin-top:  40px;
+    gap: 30px;
+}
+
+.offer-text {
+    font-size: 16px;
+    color: #333;
+}
+
+.view-more-button {
+    font-size: 12px;
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid#0056b3 ;
+    border-radius: 20px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    color: #333;
+    cursor: pointer;
+}
+
+.view-more-button:hover {
+    background-color: #0056b3;
+    color: white;
 }

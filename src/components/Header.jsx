@@ -1,34 +1,43 @@
-import React from 'react';
-import '../styles/Header.css';
+import React from "react";
+import "../styles/Header.css";
+import userIcon from "../images/user-icon.png";
 
 const Header = () => {
+    const userName = "Juanfra";
+
     return (
-        <header>
-            <div className="top-bar">
-                <div className="logo">
-                    <img src="https://via.placeholder.com/50" alt="Almundo Logo"></img>
-                </div>
-                <div className="contact-info">
-                    <span>VENTAS:</span>
-                    <a href="#">0810-222-1080</a>
-                    <a href="#">+54-341-156-205208</a>
-                    <span>De lunes a domingo y feriados de 9 a 23 h</span>
-                    <a href="#" className="login">Ingresar</a>
-                </div>
+        <header className="header">
+            <div className="logo">
+                <img
+                    src="https://cdn.discordapp.com/attachments/1034266873379958939/1272326528033751180/logoOdysseyTravels.png?ex=66ba91ea&is=66b9406a&hm=8fdf7fc7dac89c13a158f2f6204a16e682ec4674bbcec6b5bc46940446d7dcd0&"
+                    alt="Logo"
+                />
             </div>
-            <nav className="nav-links">
-                <a href="#">Alojamientos</a>
-                <a href="#">Vuelos</a>
-                <a href="#">Paquetes</a>
-                <a href="#">Actividades</a>
-                <a href="#">Asistencias</a>
-                <a href="#">Autos</a>
-                <a href="#">Disney</a>
-                <a href="#">Universal</a>
-                <a href="#">Circuitos</a>
+            <nav className="nav">
+                <ul>
+                    <li>
+                        <a href="#alojamiento">Alojamiento</a>
+                    </li>
+                    <li>
+                        <a href="#paquetes">Paquetes</a>
+                    </li>
+                    <li>
+                        <a href="#excurciones">Excurciones</a>
+                    </li>
+                    <li>
+                        <a href="#autos">Autos</a>
+                    </li>
+                    <li>
+                        <a href="#nosotros">Nosotros</a>
+                    </li>
+                </ul>
             </nav>
+            <div className="user">
+                <img src={userIcon} alt="User Icon" className="user-icon" />
+                <span>Hola! {userName}</span>
+            </div>
         </header>
     );
-}
+};
 
 export default Header;

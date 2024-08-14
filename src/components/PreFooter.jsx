@@ -1,15 +1,14 @@
 import React from 'react';
 import '../styles/PreFooter.css';
-import { colors } from '@nextui-org/react';
 
 const PreFooter = () => {
     return (
-        <footer className="footer">
+        <footer className="footer1">
             <div className="suscripcion">
                 <p>No te pierdas ninguna promoción</p>
                 <div className="suscripcion-input">
                     <input type="email" placeholder="Ingresá tu email" />
-                    <button>Suscribirme</button>
+                    <button className='button-suscribe'>Suscribirme</button>
                 </div>
             </div>
             <div className="enlaces">
