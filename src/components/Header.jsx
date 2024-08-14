@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Header.css";
 import userIcon from "../images/user-icon.png";
+import logo from "../images/logoFinal2.png";
 
 const Header = () => {
     const userName = "Juanfra";
@@ -9,7 +10,7 @@ const Header = () => {
         <header className="header">
             <div className="logo">
                 <img
-                    src="https://cdn.discordapp.com/attachments/1034266873379958939/1272326528033751180/logoOdysseyTravels.png?ex=66ba91ea&is=66b9406a&hm=8fdf7fc7dac89c13a158f2f6204a16e682ec4674bbcec6b5bc46940446d7dcd0&"
+                    src={logo}
                     alt="Logo"
                 />
             </div>

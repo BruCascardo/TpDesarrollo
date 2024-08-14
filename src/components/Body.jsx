@@ -58,13 +58,13 @@ const BuscadorVuelos = () => {
                         </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="price">Precio maximo:</label>
+                        <label htmlFor="price" className='label-range'>Precio maximo:</label>
                         <div className='range-container'>
                             <input
                                 type="range"
                                 id="price"
                                 min="0"
-                                max="10000"
+                                max="10000000"
                                 value={price}
                                 onChange={handlePriceChange}
                             />
