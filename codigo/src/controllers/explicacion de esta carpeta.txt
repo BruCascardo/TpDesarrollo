@@ -1,1 +1,0 @@
-aca se manejan las solicitudes que se realizan al servidor
