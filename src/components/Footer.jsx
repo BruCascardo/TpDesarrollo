@@ -30,7 +30,7 @@ const Footer = () => {
                 <div className="legal-section">
                     <h3>LEGALES</h3>
                     <ul>
-                        <li><a href="#">Ley 24.240</a></li>
+                        <li><a href="https://www.argentina.gob.ar/normativa/nacional/ley-24240-638" target="_blank">Ley 24.240</a></li>
                         <li><a href="#">Condiciones generales</a></li>
                         <li><a href="#">Política de seguridad</a></li>
                         <li><a href="#">Política de privacidad</a></li>
