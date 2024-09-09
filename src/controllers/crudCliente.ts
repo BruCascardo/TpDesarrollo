@@ -14,7 +14,7 @@ const clientes = [
     'bruno@gmail.com',
     new Date('2004-05-23')
   ),
-  new Cliente( 
+  new Cliente(
     'Jano',
     'Martinez',
     '2058365',
@@ -61,7 +61,7 @@ app.get('/api/clientes/:dni', (req, res) => {
   }
 });
 
-// CREAR UN CLIENTE NUEVO 
+// CREAR UN CLIENTE NUEVO
 
 app.post('/api/clientes', sanitizeClienteInput, (req, res) => {
   const input = req.body.sanitizedInput;
@@ -87,9 +87,7 @@ app.put('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
   }
 
   clientes[indexC] = { ...clientes[indexC], ...req.body.sanitizedInput };
-  res
-    .status(200)
-    .json({ message: 'Cliente updated', data: clientes[indexC] });
+  res.status(200).json({ message: 'Cliente updated', data: clientes[indexC] });
 });
 
 // MODIFICAR UN CLIENTE PARCIALMENTE
@@ -101,9 +99,7 @@ app.patch('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
   }
 
   clientes[indexC] = { ...clientes[indexC], ...req.body.sanitizedInput };
-  res
-    .status(200)
-    .json({ message: 'Cliente updated', data: clientes[indexC] });
+  res.status(200).json({ message: 'Cliente updated', data: clientes[indexC] });
 });
 
 // BORRAR UN CLIENTE
