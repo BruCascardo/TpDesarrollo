@@ -4,7 +4,7 @@ import userIcon from "../images/user-icon.png";
 import logo from "../images/logoFinal2.png";
 
 const Header = () => {
-    const userName = "Juanfra";
+    const userName = "Panchito Alaniz";
 
     return (
         <header className="header">
