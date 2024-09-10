@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; 
+import 'react-datepicker/dist/react-datepicker.css';
 import '../styles/Body.css';
 import video from '../images/esteEs.mp4';
 
 const BuscadorVuelos = () => {
     const [price, setPrice] = useState(5000);
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null); 
+    const [startDate, setStartDate] = useState<Date | null>(null);
+    const [endDate, setEndDate] = useState<Date | null>(null);
 
-    const handlePriceChange = (event) => {
-        setPrice(event.target.value);
+    // Manejador del cambio de precio
+    const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPrice(Number(event.target.value));
     };
 
-    const handleSubmit = (event) => {
+    // Manejador del submit del formulario
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log({
             startDate,
@@ -24,9 +26,9 @@ const BuscadorVuelos = () => {
 
     return (
         <div className="contenedor-buscador">
-            {/* <video autoPlay muted loop id="bgVideo">
+            <video autoPlay muted loop id="bgVideo">
                 <source src={video} type="video/mp4" />
-            </video> */}
+            </video>
             <h2>NUESTROS PAQUETES</h2>
             <h1>Busca tu viaje ideal</h1>
             <form onSubmit={handleSubmit} className="formulario-buscador">
@@ -58,7 +60,7 @@ const BuscadorVuelos = () => {
                         </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="price" className='label-range'>Precio maximo:</label>
+                        <label htmlFor="price" className='label-range'>Precio máximo:</label>
                         <div className='range-container'>
                             <input
                                 type="range"
@@ -66,7 +68,7 @@ const BuscadorVuelos = () => {
                                 min="0"
                                 max="10000000"
                                 value={price}
-                                onChange={handlePriceChange}
+                                onChange={handlePriceChange}  // Asignado al input
                             />
                             <span className="price-label">${price}</span>
                         </div>

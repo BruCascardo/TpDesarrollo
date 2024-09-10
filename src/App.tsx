@@ -47,14 +47,14 @@ const App: React.FC = () => {
                             </motion.div>
                         }
                     />
-                    <Route
+                    {/* <Route
                         path="/cardDetail"
                         element={
                             <motion.div {...pageTransition}>
                                 <CardDetail {...flightDetails}/>
                             </motion.div>
                         }
-                    />
+                    /> */}
                     <Route
                         path="/prefooter"
                         element={
