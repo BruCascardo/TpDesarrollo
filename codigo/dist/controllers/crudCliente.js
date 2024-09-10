@@ -1,4 +1,5 @@
-import express from 'express';
+import express, { Router } from 'express';
+const routerCliente = Router();
 import { Cliente } from '../models/cliente.js';
 const app = express();
 app.use(express.json());
@@ -25,11 +26,11 @@ function sanitizeClienteInput(req, res, next) {
     next();
 }
 // OBTENER TODOS LOS CLIENTES
-app.get('/api/clientes', (req, res) => {
+routerCliente.get('/api/clientes', (req, res) => {
     res.json({ data: clientes });
 });
 // OBTENER UN CLIENTE
-app.get('/api/clientes/:dni', (req, res) => {
+routerCliente.get('/api/clientes/:dni', (req, res) => {
     const cliente = clientes.find((c) => c.dni === req.params.dni);
     if (!cliente) {
         res.status(404).send({ message: 'Cliente not found' });
@@ -38,40 +39,33 @@ app.get('/api/clientes/:dni', (req, res) => {
         res.json({ data: cliente });
     }
 });
-// CREAR UN CLIENTE NUEVO 
 // CREAR UN CLIENTE NUEVO
-app.post('/api/clientes', sanitizeClienteInput, (req, res) => {
+routerCliente.post('/api/clientes', sanitizeClienteInput, (req, res) => {
     const input = req.body.sanitizedInput;
     const newCliente = new Cliente(input.nombre, input.apellido, input.dni, input.email, input.fechaNacimiento);
     clientes.push(newCliente);
     res.status(201).json({ message: 'Cliente created', data: newCliente });
 });
 // MODIFICAR UN CLIENTE COMPLETAMENTE
-app.put('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
+routerCliente.put('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
     const indexC = clientes.findIndex((c) => c.dni === req.params.dni);
     if (indexC === -1) {
         res.status(404).send({ message: 'Cliente not found' });
     }
     clientes[indexC] = { ...clientes[indexC], ...req.body.sanitizedInput };
-    res
-        .status(200)
-        .json({ message: 'Cliente updated', data: clientes[indexC] });
     res.status(200).json({ message: 'Cliente updated', data: clientes[indexC] });
 });
 // MODIFICAR UN CLIENTE PARCIALMENTE
-app.patch('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
+routerCliente.patch('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
     const indexC = clientes.findIndex((c) => c.dni === req.params.dni);
     if (indexC === -1) {
         res.status(404).send({ message: 'Cliente not found' });
     }
     clientes[indexC] = { ...clientes[indexC], ...req.body.sanitizedInput };
-    res
-        .status(200)
-        .json({ message: 'Cliente updated', data: clientes[indexC] });
     res.status(200).json({ message: 'Cliente updated', data: clientes[indexC] });
 });
 // BORRAR UN CLIENTE
-app.delete('/api/clientes/:dni', (req, res) => {
+routerCliente.delete('/api/clientes/:dni', (req, res) => {
     const indexC = clientes.findIndex((c) => c.dni === req.params.dni);
     if (indexC === -1) {
         res.status(404).send({ message: 'Cliente not found' });
@@ -79,8 +73,5 @@ app.delete('/api/clientes/:dni', (req, res) => {
     clientes.splice(indexC, 1);
     res.status(200).json({ message: 'Cliente deleted' });
 });
-// LISTEN
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
-});
+module.exports = routerCliente;
 //# sourceMappingURL=crudCliente.js.map

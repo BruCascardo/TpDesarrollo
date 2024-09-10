@@ -5,11 +5,10 @@
   "main": "CRUD1-Cliente.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p ./tsconfig.json",
-    "start:cliente": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/crudCliente.js\"",
-    "start:ciudad": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/crudCiudad.js\"",
-    "startReact": "webpack serve --mode development",
-    "buildReact": "webpack --mode production"
+    "build:frontend": "webpack --mode production",
+    "build:backend": "tsc",
+    "build": "npm run build:frontend && npm run build:backend",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",

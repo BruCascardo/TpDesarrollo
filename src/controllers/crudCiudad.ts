@@ -1,9 +1,9 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response, NextFunction, Router } from 'express';
+const routerCiudad = Router();
 import { Ciudad } from '../models/ciudad.model.js';
 import {pool} from '../shared/db/conn.js';
 
-const app = express();
-app.use(express.json());
+routerCiudad.use(express.json());
 
 //Date format: YYYY-MM-DD
 
@@ -41,13 +41,13 @@ function sanitizeCiudadInput(req: Request, res: Response, next: NextFunction) {
 
 // OBTENER TODAS LAS CIUDADES
 
-app.get('/api/ciudades', (req, res) => {
+routerCiudad.get('/api/ciudades', (req, res) => {
   res.json({ data: ciudades });
 });
 
 // OBTENER UNA CIUDAD
 
-app.get('/api/ciudades/:id', (req, res) => {
+routerCiudad.get('/api/ciudades/:id', (req, res) => {
   const ciudad = ciudades.find((c) => c.id === parseInt(req.params.id));
   if (!ciudad) {
     res.status(404).send({ message: 'Ciudad not found' });
@@ -58,7 +58,7 @@ app.get('/api/ciudades/:id', (req, res) => {
 
 // CREAR UNA CIUDAD
 
-app.post('/api/ciudades', sanitizeCiudadInput, (req, res) => {
+routerCiudad.post('/api/ciudades', sanitizeCiudadInput, (req, res) => {
   const input = req.body.sanitizedInput;
 
   const newCiudad = new Ciudad(input.id, input.nombre, input.descripcion);
@@ -69,7 +69,7 @@ app.post('/api/ciudades', sanitizeCiudadInput, (req, res) => {
 
 // MODIFICAR UNA CIUDAD COMPLETAMENTE
 
-app.put('/api/ciudades/:id', sanitizeCiudadInput, (req, res) => {
+routerCiudad.put('/api/ciudades/:id', sanitizeCiudadInput, (req, res) => {
   const indexC = ciudades.findIndex((c) => c.id === parseInt(req.params.id));
   if (indexC === -1) {
     res.status(404).send({ message: 'Ciudad not found' });
@@ -81,7 +81,7 @@ app.put('/api/ciudades/:id', sanitizeCiudadInput, (req, res) => {
 
 // MODIFICAR UNA CIUDAD PARCIALMENTE
 
-app.patch('/api/ciudades/:id', sanitizeCiudadInput, (req, res) => {
+routerCiudad.patch('/api/ciudades/:id', sanitizeCiudadInput, (req, res) => {
   const indexC = ciudades.findIndex((c) => c.id === parseInt(req.params.id));
   if (indexC === -1) {
     res.status(404).send({ message: 'Ciudad not found' });
@@ -93,7 +93,7 @@ app.patch('/api/ciudades/:id', sanitizeCiudadInput, (req, res) => {
 
 // BORRAR UN CLIENTE
 
-app.delete('/api/ciudades/:id', (req, res) => {
+routerCiudad.delete('/api/ciudades/:id', (req, res) => {
   const indexC = ciudades.findIndex((c) => c.id === parseInt(req.params.id));
   if (indexC === -1) {
     res.status(404).send({ message: 'Ciudad not found' });
@@ -103,8 +103,4 @@ app.delete('/api/ciudades/:id', (req, res) => {
   res.status(200).json({ message: 'Ciudad deleted' });
 });
 
-// LISTEN
-
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
-});
+module.exports = routerCiudad;

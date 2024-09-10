@@ -1,4 +1,5 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response, NextFunction, Router } from 'express';
+const routerCliente = Router();
 import { Cliente } from '../models/cliente.js';
 
 const app = express();
@@ -46,13 +47,13 @@ function sanitizeClienteInput(req: Request, res: Response, next: NextFunction) {
 
 // OBTENER TODOS LOS CLIENTES
 
-app.get('/api/clientes', (req, res) => {
+routerCliente.get('/api/clientes', (req, res) => {
   res.json({ data: clientes });
 });
 
 // OBTENER UN CLIENTE
 
-app.get('/api/clientes/:dni', (req, res) => {
+routerCliente.get('/api/clientes/:dni', (req, res) => {
   const cliente = clientes.find((c) => c.dni === req.params.dni);
   if (!cliente) {
     res.status(404).send({ message: 'Cliente not found' });
@@ -63,7 +64,7 @@ app.get('/api/clientes/:dni', (req, res) => {
 
 // CREAR UN CLIENTE NUEVO
 
-app.post('/api/clientes', sanitizeClienteInput, (req, res) => {
+routerCliente.post('/api/clientes', sanitizeClienteInput, (req, res) => {
   const input = req.body.sanitizedInput;
 
   const newCliente = new Cliente(
@@ -80,7 +81,7 @@ app.post('/api/clientes', sanitizeClienteInput, (req, res) => {
 
 // MODIFICAR UN CLIENTE COMPLETAMENTE
 
-app.put('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
+routerCliente.put('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
   const indexC = clientes.findIndex((c) => c.dni === req.params.dni);
   if (indexC === -1) {
     res.status(404).send({ message: 'Cliente not found' });
@@ -92,7 +93,7 @@ app.put('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
 
 // MODIFICAR UN CLIENTE PARCIALMENTE
 
-app.patch('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
+routerCliente.patch('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
   const indexC = clientes.findIndex((c) => c.dni === req.params.dni);
   if (indexC === -1) {
     res.status(404).send({ message: 'Cliente not found' });
@@ -104,7 +105,7 @@ app.patch('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
 
 // BORRAR UN CLIENTE
 
-app.delete('/api/clientes/:dni', (req, res) => {
+routerCliente.delete('/api/clientes/:dni', (req, res) => {
   const indexC = clientes.findIndex((c) => c.dni === req.params.dni);
   if (indexC === -1) {
     res.status(404).send({ message: 'Cliente not found' });
@@ -114,8 +115,4 @@ app.delete('/api/clientes/:dni', (req, res) => {
   res.status(200).json({ message: 'Cliente deleted' });
 });
 
-// LISTEN
-
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
-});
+module.exports = routerCliente;

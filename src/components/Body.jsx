@@ -24,9 +24,9 @@ const BuscadorVuelos = () => {
 
     return (
         <div className="contenedor-buscador">
-            <video autoPlay muted loop id="bgVideo">
+            {/* <video autoPlay muted loop id="bgVideo">
                 <source src={video} type="video/mp4" />
-            </video>
+            </video> */}
             <h2>NUESTROS PAQUETES</h2>
             <h1>Busca tu viaje ideal</h1>
             <form onSubmit={handleSubmit} className="formulario-buscador">
