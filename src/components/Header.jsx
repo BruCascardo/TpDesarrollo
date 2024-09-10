@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Header.css";
 import userIcon from "../images/user-icon.png";
 import logo from "../images/logoFinal2.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const userName = "Juanfra";
@@ -9,15 +10,12 @@ const Header = () => {
     return (
         <header className="header">
             <div className="logo">
-                <img
-                    src={logo}
-                    alt="Logo"
-                />
+                <Link to="/" ><img src={logo} alt="Logo"/></Link>
             </div>
             <nav className="nav">
                 <ul>
                     <li>
-                        <a href="#alojamiento">Alojamiento</a>
+                        <Link to="/card" >Alojamiento</Link>
                     </li>
                     <li>
                         <a href="#paquetes">Paquetes</a>
