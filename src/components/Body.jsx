@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; // Asegúrate de incluir el estilo
+import 'react-datepicker/dist/react-datepicker.css'; 
 import '../styles/Body.css';
 import video from '../images/esteEs.mp4';
 
 const BuscadorVuelos = () => {
     const [price, setPrice] = useState(5000);
-    const [startDate, setStartDate] = useState(null); // Para la fecha de inicio
-    const [endDate, setEndDate] = useState(null); // Para la fecha de fin (solo si es ida y vuelta)
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null); 
 
     const handlePriceChange = (event) => {
         setPrice(event.target.value);
@@ -24,9 +24,9 @@ const BuscadorVuelos = () => {
 
     return (
         <div className="contenedor-buscador">
-            <video autoPlay muted loop id="bgVideo">
+            {/* <video autoPlay muted loop id="bgVideo">
                 <source src={video} type="video/mp4" />
-            </video>
+            </video> */}
             <h2>NUESTROS PAQUETES</h2>
             <h1>Busca tu viaje ideal</h1>
             <form onSubmit={handleSubmit} className="formulario-buscador">
