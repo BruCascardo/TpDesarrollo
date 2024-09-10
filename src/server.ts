@@ -2,8 +2,8 @@ import express, { Request, Response } from 'express';
 import path from 'path';
 
 // Importar los CRUDs
-const crudCliente = require('../codigo/dist/controllers/crudCliente');
-const crudCiudad = require('../codigo/dist/controllers/crudCiudad');
+const crudCliente = require('../dist/controllers/crudCliente');
+const crudCiudad = require('../dist/controllers/crudCiudad');
 
 const app = express();
 
