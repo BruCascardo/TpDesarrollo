@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { Ciudad } from '../models/ciudad.js';
+import { Ciudad } from '../models/ciudad.model.js';
+import {pool} from '../shared/db/conn.js';
 
 const app = express();
 app.use(express.json());
@@ -10,13 +11,13 @@ const ciudades = [
   new Ciudad(
     1,
     'Buenos Aires',
-    'En Buenos Aires podes encontrar una gran variedad de actividades para realizar, desde recorrer el barrio de San Telmo, hasta visitar el Obelisco.',
+    'En Buenos Aires podes encontrar una gran variedad de actividades para realizar, desde recorrer el barrio de San Telmo, hasta visitar el Obelisco.'
   ),
   new Ciudad(
     2,
     'Pergamino',
-    'En Pergamino podes encontrar una gran variedad de actividades para realizar, desde recorrer el arroyo Pergamino, hasta visitar la plaza 25 de Mayo.',
-  )
+    'En Pergamino podes encontrar una gran variedad de actividades para realizar, desde recorrer el arroyo Pergamino, hasta visitar la plaza 25 de Mayo.'
+  ),
 ];
 
 // Middleware para sanitizar la entrada de los clientes
@@ -60,11 +61,7 @@ app.get('/api/ciudades/:id', (req, res) => {
 app.post('/api/ciudades', sanitizeCiudadInput, (req, res) => {
   const input = req.body.sanitizedInput;
 
-  const newCiudad = new Ciudad(
-    input.id,
-    input.nombre,
-    input.descripcion,
-  );
+  const newCiudad = new Ciudad(input.id, input.nombre, input.descripcion);
 
   ciudades.push(newCiudad);
   res.status(201).json({ message: 'Ciudad created', data: newCiudad });

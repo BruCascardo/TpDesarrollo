@@ -1,10 +1,12 @@
 import express from 'express';
 import { Ciudad } from '../models/ciudad.js';
+import { Ciudad } from '../models/ciudad.model.js';
 const app = express();
 app.use(express.json());
 //Date format: YYYY-MM-DD
 const ciudades = [
     new Ciudad(1, 'Buenos Aires', 'En Buenos Aires podes encontrar una gran variedad de actividades para realizar, desde recorrer el barrio de San Telmo, hasta visitar el Obelisco.'),
+    new Ciudad(2, 'Pergamino', 'En Pergamino podes encontrar una gran variedad de actividades para realizar, desde recorrer el arroyo Pergamino, hasta visitar la plaza 25 de Mayo.'),
     new Ciudad(2, 'Pergamino', 'En Pergamino podes encontrar una gran variedad de actividades para realizar, desde recorrer el arroyo Pergamino, hasta visitar la plaza 25 de Mayo.')
 ];
 // Middleware para sanitizar la entrada de los clientes

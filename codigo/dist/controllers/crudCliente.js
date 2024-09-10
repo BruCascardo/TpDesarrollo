@@ -39,6 +39,7 @@ app.get('/api/clientes/:dni', (req, res) => {
     }
 });
 // CREAR UN CLIENTE NUEVO 
+// CREAR UN CLIENTE NUEVO
 app.post('/api/clientes', sanitizeClienteInput, (req, res) => {
     const input = req.body.sanitizedInput;
     const newCliente = new Cliente(input.nombre, input.apellido, input.dni, input.email, input.fechaNacimiento);
@@ -55,6 +56,7 @@ app.put('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
     res
         .status(200)
         .json({ message: 'Cliente updated', data: clientes[indexC] });
+    res.status(200).json({ message: 'Cliente updated', data: clientes[indexC] });
 });
 // MODIFICAR UN CLIENTE PARCIALMENTE
 app.patch('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
@@ -66,6 +68,7 @@ app.patch('/api/clientes/:dni', sanitizeClienteInput, (req, res) => {
     res
         .status(200)
         .json({ message: 'Cliente updated', data: clientes[indexC] });
+    res.status(200).json({ message: 'Cliente updated', data: clientes[indexC] });
 });
 // BORRAR UN CLIENTE
 app.delete('/api/clientes/:dni', (req, res) => {

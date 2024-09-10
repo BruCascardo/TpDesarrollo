@@ -5,7 +5,7 @@ import logo from "../images/logoFinal2.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-    const userName = "Juanfra";
+    const userName = "Panchito Alaniz";
 
     return (
         <header className="header">
